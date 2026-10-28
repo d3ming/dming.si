@@ -1,0 +1,113 @@
+---
+import data from "../../content/home.json";
+import { homeSchema, SITE_URL } from "../lib/home.mjs";
+import "../styles/global.css";
+
+const home = homeSchema.parse(data);
+const title = `${home.name} (${home.handle}) · Projects and writing`;
+const profileUrl = home.socials.find((social) => social.id === "x")!.url;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: home.handle,
+      alternateName: home.name,
+      url: SITE_URL,
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/#profile`,
+      url: SITE_URL,
+      mainEntity: {
+        "@type": "Person",
+        "@id": `${SITE_URL}/#person`,
+        name: home.name,
+        alternateName: home.handle,
+        url: SITE_URL,
+        image: `${SITE_URL}/avatar.jpg`,
+        sameAs: home.socials.map((social) => social.url),
+      },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0b0d15" />
+    <title>{title}</title>
+    <meta name="description" content={home.description} />
+    <meta name="author" content={home.name} />
+    <link rel="canonical" href={SITE_URL} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={home.handle} />
+    <meta property="og:description" content={home.description} />
+    <meta property="og:url" content={SITE_URL} />
+    <meta property="og:image" content={`${SITE_URL}/avatar.jpg`} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content={home.handle} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData).replace(/</g, "\\u003c")}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
+    <main id="main">
+      <header class="identity">
+        <img src="/avatar.jpg" alt="" width="72" height="72" />
+        <h1>
+          <a href={profileUrl}>{home.handle}</a>
+        </h1>
+      </header>
+      <p class="intro">{home.intro}</p>
+      <nav class="projects" aria-label="Projects">
+        {home.projects.map((project) => (
+          <a class="project" data-project={project.id} href={project.url}>
+            <span class="project-mark" aria-hidden="true">
+              {project.id === "alpha"
+                ? "α"
+                : project.id === "wire"
+                  ? "∞"
+                  : project.name[0]}
+            </span>
+            <span class="project-copy">
+              <h2>{project.name}</h2>
+              <p>{project.description}</p>
+            </span>
+            <svg
+              class="arrow"
+              aria-hidden="true"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M5 19 19 5M5 5h14v14" />
+            </svg>
+          </a>
+        ))}
+      </nav>
+      <nav class="socials" aria-label="Find me online">
+        {home.socials.map((social) => (
+          <a href={social.url}>
+            {social.label}
+            <span aria-hidden="true"> ↗</span>
+          </a>
+        ))}
+      </nav>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "Dong Ming",
+  "handle": "@dming",
+  "description": "Dong Ming (@dming), creator of Alpha and Wire. Tools for investment research and curated podcasts and social signals. Projects, writing, and links.",
+  "intro": "I build tools for investing and making sense of information.",
+  "projects": [
+    {
+      "id": "alpha",
+      "name": "alpha",
+      "description": "Stock research, valuations, and market data.",
+      "url": "https://alpha.dming.si"
+    },
+    {
+      "id": "wire",
+      "name": "wire",
+      "description": "Podcasts and social signals, distilled.",
+      "url": "https://wire.dming.si"
+    }
+  ],
+  "socials": [
+    { "id": "x", "label": "X", "url": "https://x.com/dming" },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/dongming/"
+    },
+    {
+      "id": "substack",
+      "label": "Substack",
+      "url": "https://mingdom.substack.com"
+    }
+  ]
+}
