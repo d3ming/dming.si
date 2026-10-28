@@ -25,6 +25,25 @@ assert(
   "Canonical URL must point to dming.si",
 );
 assert(html.includes('name="description"'), "Missing search description");
+const graph = JSON.parse(
+  html.match(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+  )?.[1] ?? "null",
+)["@graph"];
+const website = graph.find(
+  (/** @type {{ "@type": string }} */ node) => node["@type"] === "WebSite",
+);
+const profile = graph.find(
+  (/** @type {{ "@type": string }} */ node) => node["@type"] === "ProfilePage",
+);
+assert.equal(website.url, SITE_URL);
+assert.equal(website.name, home.handle);
+assert.equal(profile.mainEntity.name, home.name);
+assert.equal(profile.mainEntity.alternateName, home.handle);
+assert.deepEqual(
+  profile.mainEntity.sameAs,
+  home.socials.map((social) => social.url),
+);
 assert(
   !/<script\b(?![^>]*type="application\/ld\+json")/i.test(html),
   "The homepage must work without client JavaScript",
