@@ -43,7 +43,36 @@ Verified on 2026-10-28:
 
 Dong authorized a public GitHub repository and publishing to `dming.si` through
 Vercel on 2026-10-28. The repository must contain only material intended for
-public viewing. Release verification will be recorded here after execution.
+public viewing.
+
+Released and verified on 2026-10-28:
+
+- Public source: [d3ming/dming.si](https://github.com/d3ming/dming.si), default
+  branch `main`. Public history uses GitHub no-reply commit identities. Original
+  pre-public local history was preserved outside the project before the clean
+  public history was created; it was not pushed.
+- GitHub secret scanning and push protection are enabled. The public-content
+  gate was also tested against an accidentally staged environment file and
+  correctly refused it. No values from generated environment files were read
+  or published.
+- [CI run 40736572954](https://github.com/d3ming/dming.si/actions/runs/40736572954)
+  passed both jobs: the full local gate and the complete reachable-history
+  Gitleaks scan. The initial scanner wrapper failed on a root-commit range;
+  the replacement runs the pinned CLI directly over all reachable history.
+- Production: [dming.si](https://dming.si), Vercel project `dming-si`, Node 24.
+  Released commit `55fa4d774ff0d3b2632eff45a259ec8ec6e7a862`, deployment
+  `dpl_DhyF22kTHpgJuYHHMrUCkrXdLSEA`. Later documentation-only commits do not
+  change this deployed build.
+- Unauthenticated HTTPS checks returned 200 for the homepage, robots.txt, and
+  sitemap; `www.dming.si` redirects to the apex; unknown paths return the custom
+  404 with a route home. The production page is indexable and has all five
+  requested destinations, the canonical URL, and profile identity markup.
+- Inspected the actual production page in the browser. Alpha and Wire retain
+  their existing domain assignments. The old website has not been redirected.
+
+GitHub is the public source home. Publishing remains an explicit `make publish`
+operation; automatic Git-triggered production deployment is not configured.
+See [search.md](search.md) for Search Console and public profile-link follow-up.
 
 Decide the treatment of old writing URLs before retiring `dongming.me`. Until
 then it remains the writing archive.

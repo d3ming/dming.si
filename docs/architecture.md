@@ -57,8 +57,9 @@ snapshot, implemented signals, and remaining profile/indexing work.
 
 ## Keep additions proportional to actual use
 
-If Dong starts publishing short essays here, first add a Markdown collection,
-explicit draft handling, and one create/preview/publish workflow. A browser
+If Dong starts publishing short essays here, first add a Markdown collection
+for material already approved for public viewing and one create/preview/publish
+workflow. Unpublished drafts must stay outside this public repository. A browser
 editor is a separate decision: it must write the same canonical content and
 must not create a second database to synchronize. No editor is implemented yet.
 

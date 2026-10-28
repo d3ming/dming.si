@@ -21,12 +21,13 @@ deployment. This project gives the homepage one content file and one deployment
 command. Publishing essays would need a separately tested content workflow;
 do not describe changing a status field as a complete publishing system.
 
-## Hosting setup is pending approval
+## Production runs on Vercel
 
-The intended Vercel project name is `dming-si`. A system `vercel` CLI is required
+The Vercel project is `dming-si`, serving `https://dming.si`; `www.dming.si`
+redirects to the apex. A system `vercel` CLI is required
 only for hosting setup and publishing; local development uses locked npm tools.
 
-After Dong approves creating or selecting the hosting project:
+To connect a new checkout after confirming the intended account/team:
 
 ```sh
 vercel link --project dming-si
@@ -35,7 +36,13 @@ vercel link --project dming-si
 Inspect `.vercel/project.json` and confirm the project name is `dming-si`, its
 account/team is correct, and no link was inherited from another project. That
 file stays ignored. Configure Node 24 and the checked-in `vercel.json` build.
-Create a preview deployment for Dong to review before production.
+The CLI may generate an ignored `.env.local` while linking. This static site
+does not use environment variables; remove that generated file without reading
+or committing its values. Do not copy secrets into the project.
+
+GitHub stores the public source and runs CI. Git-triggered automatic production
+deployment is not configured; `make publish` remains the deliberate release
+command. Do not enable a second production path without updating this contract.
 
 After production approval:
 
