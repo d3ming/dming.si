@@ -56,13 +56,13 @@ Released and verified on 2026-10-28:
   gate was also tested against an accidentally staged environment file and
   correctly refused it. No values from generated environment files were read
   or published.
-- [CI run 40736572954](https://github.com/d3ming/dming.si/actions/runs/40736572954)
+- [CI run 40794904130](https://github.com/d3ming/dming.si/actions/runs/40794904130)
   passed both jobs: the full local gate and the complete reachable-history
   Gitleaks scan. The initial scanner wrapper failed on a root-commit range;
   the replacement runs the pinned CLI directly over all reachable history.
 - Production: [dming.si](https://dming.si), Vercel project `dming-si`, Node 24.
-  Released commit `55fa4d774ff0d3b2632eff45a259ec8ec6e7a862`, deployment
-  `dpl_DhyF22kTHpgJuYHHMrUCkrXdLSEA`. Later documentation-only commits do not
+  Released commit `8d31bbc622ceb8f35518cf70cb35bb1f263347c5`, deployment
+  `dpl_CDF7MsRqnPhRJqjcEM9QCYbiWLyf`. Later documentation-only commits do not
   change this deployed build.
 - Unauthenticated HTTPS checks returned 200 for the homepage, robots.txt, and
   sitemap; `www.dming.si` redirects to the apex; unknown paths return the custom
@@ -70,6 +70,9 @@ Released and verified on 2026-10-28:
   requested destinations, the canonical URL, and profile identity markup.
 - Inspected the actual production page in the browser. Alpha and Wire retain
   their existing domain assignments. The old website has not been redirected.
+- Published the mobile correction: equal-height cards, one-line project
+  descriptions, and no personal tagline. Local browser checks cover widths
+  320, 390, 430, and 480 pixels; production was inspected at 390 pixels.
 
 GitHub is the public source home. Publishing remains an explicit `make publish`
 operation; automatic Git-triggered production deployment is not configured.
