@@ -55,13 +55,6 @@ h1 {
 .identity a:hover {
   color: var(--accent);
 }
-.intro {
-  font-size: 1.08rem;
-  color: var(--muted);
-  line-height: 1.65;
-  max-width: 450px;
-  margin: 28px 0 40px;
-}
 
 a {
   color: inherit;
@@ -73,7 +66,9 @@ a:focus-visible {
 }
 .projects {
   display: grid;
+  grid-auto-rows: 1fr;
   gap: 16px;
+  margin-top: 40px;
 }
 .project {
   display: flex;
@@ -181,9 +176,8 @@ h2 {
     width: 58px;
     height: 58px;
   }
-  .intro {
-    margin: 25px 0 32px;
-    font-size: 1rem;
+  .projects {
+    margin-top: 32px;
   }
   .project {
     padding: 24px 20px;

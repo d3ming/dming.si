@@ -2,6 +2,8 @@
 
 ## 2026-10-28
 
+- Removed the personal tagline and equalized project card heights across mobile
+  widths without clipping descriptions.
 - Established the public-only content boundary, added local/CI checks and secret
   scanning, and prepared the public GitHub repository and Vercel release.
 - Published the public repository and Vercel homepage at `dming.si`, enabled

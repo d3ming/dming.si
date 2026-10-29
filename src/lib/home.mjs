@@ -12,7 +12,6 @@ export const homeSchema = z
     name: text.max(50),
     handle: text.max(30),
     description: text.max(160),
-    intro: text.max(140),
     projects: z
       .array(
         z.strictObject({

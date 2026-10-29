@@ -12,6 +12,7 @@ history. Public deployment waits for Dong's review.
 - Curated creator homepage; no bulk import of old writing.
 - Visible identity is `@dming`, linked directly to X. Dong approved using the
   full name in search metadata so name searches can identify the homepage.
+- No personal tagline. Project cards keep equal heights when descriptions wrap.
 - Main projects: `https://alpha.dming.si` and `https://wire.dming.si`.
 - Social links: `https://x.com/dming`,
   `https://www.linkedin.com/in/dongming/`, and

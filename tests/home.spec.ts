@@ -38,25 +38,40 @@ test("creator homepage exposes the requested destinations without JavaScript", a
       socials.getByRole("link", { name: new RegExp(`^${name}`) }),
     ).toHaveAttribute("href", url!);
   }
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= window.innerWidth,
-    ),
-  ).toBe(true);
-  expect(
-    await page.evaluate(() => {
-      const links = [...document.querySelectorAll(".project, .socials a")];
-      return links.every((link) => {
-        const box = link.getBoundingClientRect();
-        return (
-          box.width >= 44 &&
-          box.height >= 44 &&
-          box.bottom <= window.innerHeight
-        );
-      });
-    }),
-  ).toBe(true);
-  await page.screenshot({ path: testInfo.outputPath("home.png") });
+  // failure-seen: unequal wrapping made Alpha taller at 320px and 430px.
+  const viewport = page.viewportSize()!;
+  const widths =
+    testInfo.project.name === "mobile"
+      ? [320, 390, 430, 480]
+      : [viewport.width];
+  for (const width of widths) {
+    await page.setViewportSize({ width, height: viewport.height });
+    const heights = await projects
+      .getByRole("link")
+      .evaluateAll((links) =>
+        links.map((link) => link.getBoundingClientRect().height),
+      );
+    expect(Math.abs(heights[0]! - heights[1]!)).toBeLessThan(1);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth,
+      ),
+    ).toBe(true);
+    expect(
+      await page.evaluate(() => {
+        const links = [...document.querySelectorAll(".project, .socials a")];
+        return links.every((link) => {
+          const box = link.getBoundingClientRect();
+          return (
+            box.width >= 44 &&
+            box.height >= 44 &&
+            box.bottom <= window.innerHeight
+          );
+        });
+      }),
+    ).toBe(true);
+    await page.screenshot({ path: testInfo.outputPath(`home-${width}.png`) });
+  }
   await page.getByRole("link", { name: /alpha/ }).focus();
   await expect(page.getByRole("link", { name: /alpha/ })).toBeFocused();
 });
