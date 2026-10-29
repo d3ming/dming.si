@@ -6,13 +6,13 @@
     {
       "id": "alpha",
       "name": "alpha",
-      "description": "Stock research, valuations, and market data.",
+      "description": "Stock research.",
       "url": "https://alpha.dming.si"
     },
     {
       "id": "wire",
       "name": "wire",
-      "description": "Podcasts and social signals, distilled.",
+      "description": "Podcasts & signals.",
       "url": "https://wire.dming.si"
     }
   ],
