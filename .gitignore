@@ -19,3 +19,5 @@ playwright-report/
 .tmp/
 .DS_Store
 *.log
+.vercel
+.env*
