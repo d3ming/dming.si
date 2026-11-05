@@ -24,9 +24,9 @@ test("creator homepage exposes the requested destinations without JavaScript", a
     "href",
     "https://alpha.dming.si",
   );
-  await expect(projects.getByRole("link", { name: /wire/ })).toHaveAttribute(
+  await expect(projects.getByRole("link", { name: /sigma/ })).toHaveAttribute(
     "href",
-    "https://wire.dming.si",
+    "https://sigma.dming.si",
   );
   const socials = page.getByRole("navigation", { name: "Find me online" });
   for (const [name, url] of [

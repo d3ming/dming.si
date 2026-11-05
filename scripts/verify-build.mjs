@@ -69,6 +69,17 @@ assert(
     'content="noindex"',
   ),
 );
+const { redirects = [] } = JSON.parse(
+  await readFile(new URL("vercel.json", root), "utf8"),
+);
+for (const { source, destination, permanent } of redirects) {
+  assert(source.startsWith("/"), `Redirect source ${source} must be a path`);
+  assert(
+    new URL(destination).protocol === "https:",
+    `Redirect ${source} must lead to an HTTPS destination`,
+  );
+  assert.equal(permanent, false, `Redirect ${source} must stay temporary`);
+}
 console.log(
   `Production verified: ${home.projects.length} projects, ${home.socials.length} social links, metadata, assets, and no client JavaScript.`,
 );

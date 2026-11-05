@@ -1,7 +1,7 @@
 {
   "name": "Dong Ming",
   "handle": "@dming",
-  "description": "Dong Ming (@dming), creator of Alpha and Wire. Tools for investment research and curated podcasts and social signals. Projects, writing, and links.",
+  "description": "Dong Ming (@dming), creator of Alpha and Sigma. Tools for investment research and curated podcasts, video, and social signals. Projects, writing, and links.",
   "projects": [
     {
       "id": "alpha",
@@ -10,10 +10,10 @@
       "url": "https://alpha.dming.si"
     },
     {
-      "id": "wire",
-      "name": "wire",
-      "description": "Podcasts & signals.",
-      "url": "https://wire.dming.si"
+      "id": "sigma",
+      "name": "sigma",
+      "description": "Podcasts, video & X signals.",
+      "url": "https://sigma.dming.si"
     }
   ],
   "socials": [

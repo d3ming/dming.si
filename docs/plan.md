@@ -3,7 +3,7 @@
 ## Outcome
 
 `dming.si` becomes Dong's main public link: visitors see who he is, open Alpha
-or Wire, and find his X, LinkedIn, or Mingdom Substack within one compact page.
+or Sigma, and find his X, LinkedIn, or Mingdom Substack within one compact page.
 Agents can change the content, preview it, and verify the result without chat
 history. Public deployment waits for Dong's review.
 
@@ -13,7 +13,8 @@ history. Public deployment waits for Dong's review.
 - Visible identity is `@dming`, linked directly to X. Dong approved using the
   full name in search metadata so name searches can identify the homepage.
 - No personal tagline. Project cards keep equal heights when descriptions wrap.
-- Main projects: `https://alpha.dming.si` and `https://wire.dming.si`.
+- Main projects: `https://alpha.dming.si` and `https://sigma.dming.si` (Sigma replaced
+  Wire on 2026-11-05).
 - Social links: `https://x.com/dming`,
   `https://www.linkedin.com/in/dongming/`, and
   `https://mingdom.substack.com` (Dong selected this Substack).

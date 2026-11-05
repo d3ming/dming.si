@@ -36,7 +36,7 @@ Markup helps explain the page; it does not guarantee a rich result or ranking.
    indexing of the homepage. Account verification has not been performed here.
 2. Update website links on X, LinkedIn, Substack, and other public profiles to
    `https://dming.si`. Those profile edits need their own approval.
-3. Link Alpha and Wire's creator attribution back to `dming.si`. Their owners
+3. Link Alpha and Sigma's creator attribution back to `dming.si`. Their owners
    should make those changes; the homepage does not own their source.
 4. Decide the old site's archive policy. A homepage redirect can point to
    `dming.si` while article URLs remain available at the old site. Do not use a

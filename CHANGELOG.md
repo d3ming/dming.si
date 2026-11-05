@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-05
+
+- Replaced Wire with Sigma as the second lead project on the homepage, in the
+  page metadata, and in the docs.
+- Added a short link, `dming.si/notes/2026-11-05-selloff`, that redirects with
+  a 307 to the published selloff note. Short links live in one list, the
+  `redirects` in `vercel.json`.
+
 ## 2026-10-28
 
 - Removed the personal tagline and equalized project card heights across mobile

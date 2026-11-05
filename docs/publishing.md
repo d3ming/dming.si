@@ -21,6 +21,15 @@ deployment. This project gives the homepage one content file and one deployment
 command. Publishing essays would need a separately tested content workflow;
 do not describe changing a status field as a complete publishing system.
 
+## Short links are Vercel redirects
+
+`vercel.json` owns every `dming.si/<path>` that forwards elsewhere. Add an
+entry to its `redirects` list; no page, archive, or homepage entry is created.
+`"permanent": false` serves a 307, so the target can be retargeted later; the
+build refuses a redirect with a non-HTTPS destination. `astro preview` and
+`make dev` do not apply Vercel redirects, so confirm a new link after
+deployment with `curl -sI https://dming.si/<path>`.
+
 ## Production runs on Vercel
 
 The Vercel project is `dming-si`, serving `https://dming.si`; `www.dming.si`
@@ -64,4 +73,4 @@ Record the deployment and checks in `docs/plan.md`.
 `dongming.me` still owns the old public writing and its deployment. Before
 redirecting anything, decide where old post URLs should resolve. Preserve their
 paths or redirect each to its actual successor; do not silently send every
-article to the homepage. Alpha and Wire keep their existing hosting and DNS.
+article to the homepage. Alpha and Sigma keep their existing hosting and DNS.

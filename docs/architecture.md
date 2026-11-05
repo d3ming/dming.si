@@ -3,7 +3,7 @@
 ## The homepage owns a small set of curated links
 
 Dong's brief on 2026-10-28 is a concise creator homepage, similar in purpose to
-Linktree. Alpha and Wire are the main projects. LinkedIn, X, and Mingdom on
+Linktree. Alpha and Sigma are the main projects. LinkedIn, X, and Mingdom on
 Substack must be easy to find. Writing is optional future scope, not an archive
 migration requirement.
 
@@ -13,7 +13,7 @@ migration requirement.
 | Content validation and canonical origin             | `src/lib/home.mjs`                         |
 | Page structure and metadata                         | `src/pages/index.astro`                    |
 | Colors, layout, responsive behavior                 | `src/styles/global.css`                    |
-| Public project behavior and data                    | Alpha and Wire's own repos                 |
+| Public project behavior and data                    | Alpha and Sigma's own repos                |
 | Editing and publishing workflow                     | `docs/publishing.md`, Makefile commands    |
 | Old writing, old URLs, current old deployment       | `../dongming.me` until an approved cutover |
 
@@ -32,7 +32,7 @@ database, CMS, or agent-specific configuration is needed for this initial page.
 
 The dark palette and violet accents relate to the live projects inspected on
 2026-10-28: [Alpha](https://alpha.dming.si) displays stock research and valuations;
-[Wire](https://wire.dming.si) curates podcasts and social signals. Their data is
+[Sigma](https://sigma.dming.si) curates podcasts, video, and social signals. Their data is
 not copied into the homepage. The avatar is copied byte-for-byte from
 `dongming.me/public/avatar.jpg`; no old articles or runtime state are imported.
 

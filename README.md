@@ -1,6 +1,6 @@
 # dming.si
 
-@dming's public creator homepage: Alpha, Wire, and links to X, LinkedIn, and Mingdom
+@dming's public creator homepage: Alpha, Sigma, and links to X, LinkedIn, and Mingdom
 on Substack. A small Astro site with static HTML and no client JavaScript.
 
 ```sh
@@ -11,6 +11,18 @@ make dev
 Edit [content/home.json](content/home.json) to change the page. No application
 code is needed for project names, descriptions, order, or links. `make content`
 prints the validated data for agents. The build uses the same schema.
+
+To share a one-off page or artifact under `dming.si`, add an entry to the
+`redirects` list in [vercel.json](vercel.json). Keep `"permanent": false` so
+the target can change later; it serves a 307.
+
+```json
+{
+  "source": "/notes/slug",
+  "destination": "https://example.com/page",
+  "permanent": false
+}
+```
 
 ```sh
 make check    # public-content checks, formatting, types, build, browser journeys

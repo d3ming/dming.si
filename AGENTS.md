@@ -9,7 +9,7 @@ Dong's compact creator homepage. Read [README.md](README.md), then
   before staging; use a GitHub no-reply commit email.
 - Edit `content/home.json` for identity, projects, and social links. Its schema
   is `src/lib/home.mjs`; every renderer and command uses it. Add no second store.
-- Keep the page concise. Alpha and Wire lead; social links follow. No automatic
+- Keep the page concise. Alpha and Sigma lead; social links follow. No automatic
   writing archive, personal tagline, invented biography, fake metrics, or
   decorative helper copy.
 - `make install` installs locked dependencies and the test browser. `make dev`
